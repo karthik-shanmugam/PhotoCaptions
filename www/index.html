@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+    <!--
+  * Please see the included README.md file for license terms and conditions.
+  -->
+
+    <head>
+        <link rel="stylesheet" type="text/css" href="media_button_bar/css/media_button_bar.css">
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="app_framework/2.1/css/af.ui.min.css">
+        <link rel="stylesheet" type="text/css" href="app_framework/2.1/css/icons.min.css">
+        <title>Blank App Designer Project Template</title>
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+
+        <!--
+  * The "meta viewport" tag (below) helps your app size appropriately to a device's screen.
+  * Note that the meta viewport approach is being phased out in favor of the @viewport CSS rule.
+  * For a quick overview of both, see this article:
+  *   http://webdesign.tutsplus.com/tutorials/htmlcss-tutorials/quick-tip-dont-forget-the-viewport-meta-tag
+  * To see what happens, try the app on a real device with and without a "meta viewport" tag.
+-->
+
+        <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <!-- <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes, minimum-scale=1, maximum-scale=2"> -->
+
+        <style>
+            /* following three (cascaded) are equivalent to above three meta viewport statements */
+            /* see http://www.quirksmode.org/blog/archives/2014/05/html5_dev_conf.html */
+            /* see http://dev.w3.org/csswg/css-device-adapt/ */
+                @-ms-viewport { width: 100vw ; zoom: 100% ; }                           @viewport { width: 100vw ; zoom: 100% ; }
+                @-ms-viewport { user-zoom: fixed ; }                                    @viewport { user-zoom: fixed ; }
+                /*@-ms-viewport { user-zoom: zoom ; min-zoom: 100% ; max-zoom: 200% ; }   @viewport { user-zoom: zoom ; min-zoom: 100% ; max-zoom: 200% ; }*/
+        </style>
+
+        <link rel="stylesheet" href="css/app.css">
+        <link rel="stylesheet" type="text/css" href="css/index_main.less.css" class="main-less">
+
+        <!-- IMPORTANT: Do not include your weinre script tag as part of your release builds! -->
+        <!-- Place your remote debugging (weinre) script URL from the Test tab here, if it does not work below -->
+        <!-- <script src="http://debug-software.intel.com/target/target-script-min.js#insertabiglongfunkynumberfromthexdkstesttab"></script> -->
+
+        <!-- Most third-party libraries should go here. References (below) are just examples to give you the general idea... -->
+        <!-- <script src="lib/mc/hammer.js"></script> -->
+        <!-- <script src="lib/ft/fastclick.js"></script> -->
+
+        <script src="intelxdk.js"></script>
+        <!-- phantom library, needed for Intel XDK "legacy" container api calls -->
+        <script src="cordova.js"></script>
+        <!-- phantom library, needed for Cordova api calls -->
+        <script src="xhr.js"></script>
+        <!-- phantom library, needed for Intel XDK "legacy" container CORS -->
+
+        <script src="js/app.js"></script>
+        <!-- for your event code, see README and file comments for details -->
+        <script src="js/init-app.js"></script>
+        <!-- for your init code, see README and file comments for details -->
+        <script src="xdk/init-dev.js"></script>
+        <!-- normalizes device and document ready events, see file for details -->
+        <!--            
+            You may substitute jQuery for the App Framework selector library.
+            See http://app-framework-software.intel.com/documentation.php#afui/afui_jquery
+        -->
+        <script type="application/javascript" src="app_framework/2.1/appframework.js"></script>
+        <script type="application/javascript" src="app_framework/2.1/appframework.ui.js" data-ver="1"></script>
+        <script type="application/javascript" src="js/index_user_scripts.js"></script>
+        <!--            
+            You may substitute jQuery for the App Framework selector library.
+            See http://app-framework-software.intel.com/documentation.php#afui/afui_jquery
+        -->
+        <script type="application/javascript" src="lib/jquery.min.js"></script>
+        <script type="application/javascript" src="sidebar/js/hammer.js"></script>
+        <script type="application/javascript" src="sidebar/js/jquery.hammer.js"></script>
+        <script type="application/javascript" src="sidebar/js/swipe-hammer.js"></script>
+        <script type="application/javascript" src="sidebar/js/sidebar.js"></script>
+        <script type="application/javascript" src="xdk/ad/af_subpage.js"></script>
+    </head>
+
+    <body id="afui" class="">
+
+        <!-- IMPORTANT: Do not include your weinre script tag as part of your release builds! -->
+        <!-- Place your remote debugging (weinre) script URL from the Test tab here, if it does not work above -->
+        <!-- <script src="http://debug-software.intel.com/target/target-script-min.js#insertabiglongfunkynumberfromthexdkstesttab"></script> -->
+        <div id="content" class="uwrap">
+            <div class="upage panel" id="mainpage" data-header="none" data-footer="none">
+                <div class="upage-outer">
+                    <div class="upage-content content-area vertical-col left" id="page_34_7"><a class="button widget uib_w_1 d-margins icon camera generic-button" data-uib="app_framework/button" data-ver="1" id="camera_button">Photo</a>
+                        <!--<div class="widget uib_w_2 d-margins image_viewer" data-uib="media/img" data-ver="0">
+                            <figure class="figure-align">
+                                <img src="images/Strabburg.jpg" id="image_panel">
+
+                                <figcaption data-position="bottom"></figcaption>
+                            </figure>
+                        </div>-->
+
+                        <!-- IMAGES GO HERE -->
+                        <div class="image_column d-margins image_viewer">
+                            <figure class="figure-align" id="image_column">
+                                <!--<img src="images/Strabburg.jpg">-->
+                                <!--<figcaption data-position="bottom"></figcaption>-->
+                            </figure>
+                        </div>
+                        <div class="table-thing with-label widget uib_w_4 d-margins" data-uib="app_framework/input" data-ver="1">
+                            <input class="wide-control" type="text" id="caption-box" value="Enter a caption">
+                        </div>
+                        <a class="button widget uib_w_5 d-margins icon picture" data-uib="app_framework/button" data-ver="1" id="save_button">Save Images</a>
+                    </div>
+                    <div class="inner-element uib_w_3 uib_sidebar leftbar bar-bg thumb-bg bar-gutter swipe" data-uib="layout/left_sidebar" data-ver="1" data-anim="{'style':'overlap', 'v':100, 'side':'left', 'oh':25, 'dur':50}" id="side_bar">
+                        <div class="sidebar-thumb"></div>
+
+                        <div class="sidebar-content content-area vertical-col">
+
+                            <a class="button widget uib_w_8 d-margins" data-uib="app_framework/button" data-ver="1" id="camera-page-button">Camera</a><a class="button widget uib_w_9 d-margins" data-uib="app_framework/button" data-ver="1" id="gallery-page-button">Gallery</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="viewer_page" class="upage-content vertical-col left hidden">
+                    <div class="uib-button-bar default-button-bar-height widget uib_w_10 d-margins" data-uib="media/button_bar" data-ver="0">
+                        <a class="uib-graphic-button default-image-sizing hover-graphic-button active-graphic-button default-graphic-button default-graphic-text widget uib_w_11 default-graphic-sizing media-button-text-bottom" data-uib="media/graphic_button" data-ver="0" id="all-images">
+                            <img>
+                            <span class="uib-caption">All Images</span>
+                        </a>
+                        <a class="uib-graphic-button default-image-sizing hover-graphic-button active-graphic-button default-graphic-button default-graphic-text widget uib_w_12 media-button-text-bottom" data-uib="media/graphic_button" data-ver="0">
+                            <img>
+                            <span class="uib-caption">Button</span>
+                        </a>
+                        <a class="uib-graphic-button default-image-sizing hover-graphic-button active-graphic-button default-graphic-button default-graphic-text widget uib_w_13 media-button-text-bottom" data-uib="media/graphic_button" data-ver="0">
+                            <img>
+                            <span class="uib-caption">Button</span>
+                        </a>
+                    </div>
+                    <div class="image_column d-margins image_viewer">
+                        <figure class="figure-align" id="image_column_gallery">
+                            <!--<img src="images/Strabburg.jpg">-->
+                            <!--<figcaption data-position="bottom"></figcaption>-->
+                        </figure>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+
+</html>
