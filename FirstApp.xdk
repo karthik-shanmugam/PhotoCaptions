@@ -6,7 +6,7 @@
       "projectTypeName": "com.intel.xdk.projecttype.jsapp",
       "src": "appDesigner",
       "projectGuid": "de786ad9-fd1b-438a-8217-e05d422a2299",
-      "lastModifiedDate": 1424528882213,
+      "lastModifiedDate": 1424551835912,
       "creationDate": 1424505443275
     },
     "XDK-app-designer": "true",
@@ -73,6 +73,18 @@
         "selectedState": "Included",
         "data": {},
         "paramvals": {}
+      },
+      {
+        "id": "intel.xdk.camera",
+        "selectedState": "Included",
+        "data": {},
+        "paramvals": {}
+      },
+      {
+        "id": "intel.xdk.cache",
+        "selectedState": "Included",
+        "data": {},
+        "paramvals": {}
       }
     ],
     "buildConfigurations": {
@@ -92,7 +104,7 @@
         "icons_": [],
         "splashes_": [],
         "iosProvs_": [],
-        "addlPermissions_": "",
+        "addlPermissions_": "CAMERA",
         "excludedLibraries_": "",
         "cordovaCLIVersion_": "3.5",
         "crosswalkVersion_": "stable",

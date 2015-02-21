@@ -1,6 +1,6 @@
 var unsaved_images = [];
 var viewer_state = "none";
-
+var db = window.localStorage;
 
 
 function convertUrl(url){
@@ -9,8 +9,11 @@ function convertUrl(url){
 }
 function createCookies(arr, caption){
     var index;
+    
     for (index = 0; index < arr.length; index++){
-        intel.xdk.cache.setCookie(arr[index],caption,-1);
+    
+        //intel.xdk.cache.setCookie(arr[index],caption,10);
+        db.setItem(arr[index], caption);
     }
 }
 function purge(){
@@ -30,7 +33,8 @@ function showAll(){
         image.src = intel.xdk.camera.getPictureURL(imagesArray[i]);
         document.getElementById("image_column_gallery").appendChild(image);
         var figcaption = document.createElement("figcaption");
-        figcaption.innerHTML = intel.xdk.cache.getCookie(convertUrl(image.src));
+        figcaption.innerHTML = db.getItem(convertUrl(image.src));
+        //intel.xdk.cache.getCookie(convertUrl(image.src));
         document.getElementById("image_column_gallery").appendChild(figcaption);
     }
 }
@@ -44,7 +48,7 @@ function capturePhoto() {
 
 function onSuccess(evt) {
 
-  if (evt.success == true)
+  if (evt.success === true)
   {
     // create image 
     console.log("TOOK A PICTURE");
@@ -60,7 +64,7 @@ function onSuccess(evt) {
   }
   else
   {
-    if (evt.message != undefined)
+    if (evt.message !== undefined)
     {
         alert(evt.message);
     }
